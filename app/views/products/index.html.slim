@@ -1,0 +1,27 @@
+table.m-table.table-striped.m-table--head-bg-brand.table.table-striped-.table-bordered.table-hover.table-checkable
+  thead
+    tr
+      th No
+      th ID
+      th Product Name
+      th Price
+      th Qty
+      th Create at
+      th 
+        | Actions
+  tbody
+    - @products.each_with_index do |product, index|
+      tr
+        th = index + 1
+        th = product.id
+        th = product.name
+        th = product.price
+        th = product.qty
+        th = product.created_at
+        th 
+          = link_to product do 
+            span Show
+          = link_to edit_product_path(product) do
+            span Edit
+          = link_to product, :method => :delete do
+            span Delete
